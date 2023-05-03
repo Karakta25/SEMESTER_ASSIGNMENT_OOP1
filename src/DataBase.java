@@ -1,15 +1,30 @@
-import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class DataBase {
 
-    private Map<String, String> dataBaseElements;
+    private Map<String, String> dataBase = new TreeMap<>();
+    private static DataBase instance;
 
-    public DataBase(Map<String, String > dataBaseElements) {
-        this.dataBaseElements = dataBaseElements;
+
+    public DataBase() {}
+    public static DataBase getInstance(){
+        if (instance == null) {
+            instance = new DataBase() ;
+        }
+        return instance;
     }
 
-    public Map<String, String> getDataBaseElements() {
-        return dataBaseElements;
+    public Map<String, String> getDataBase() {
+
+        Map<String, String> backUpDB = new TreeMap<>(dataBase);
+        return backUpDB;
     }
+
+
+    public void addProperty(String tableName, String fileName) {
+        dataBase.put(tableName,fileName);}
+
+    public void removeProperty(String tableName, String fileName) {
+        dataBase.remove(tableName,fileName);}
 }

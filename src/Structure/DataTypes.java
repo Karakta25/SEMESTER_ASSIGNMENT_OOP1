@@ -1,6 +1,6 @@
 package Structure;
 
-public enum ColumnType {
+public enum DataTypes {
 
     INTEGER,DOUBLE,STRING,NULL;
 }

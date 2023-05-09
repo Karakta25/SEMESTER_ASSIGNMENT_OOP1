@@ -1,4 +1,4 @@
-package CLICommands;
+package Structure;
 
 public class Column<T extends Double> {
 

@@ -1,4 +1,4 @@
-package CLICommands;
+package Structure;
 import java.util.List;
 
 public class Row<T> {

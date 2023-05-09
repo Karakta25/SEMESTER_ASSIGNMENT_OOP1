@@ -1,4 +1,4 @@
-package CLICommands;
+package Structure;
 
 public enum ColumnType {
 

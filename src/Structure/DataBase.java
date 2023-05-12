@@ -5,22 +5,21 @@ import java.util.TreeMap;
 
 public class DataBase {
 
-    private Map<String, String> dataBase = new TreeMap<>();
+    private static Map<String, String> dataBase;
     private static DataBase instance;
 
 
     public DataBase() {}
     public static DataBase getInstance(){
         if (instance == null) {
-            instance = new DataBase() ;
+            instance = new DataBase();
+            dataBase = new TreeMap<>();
         }
         return instance;
     }
 
     public Map<String, String> getDataBase() {
-
-        Map<String, String> backUpDB = new TreeMap<>(dataBase);
-        return backUpDB;
+        return new TreeMap<>(this.dataBase);
     }
 
 

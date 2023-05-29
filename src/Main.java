@@ -1,29 +1,28 @@
+import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
 import Structure.*;
 public class Main {
-    public static void main(String[] args) throws InvalidDataException {
+        public static void main(String[] args) throws InvalidDataException {
 
-        Table table = new Table("Student");
-        System.out.println(table.addColumn(new Column("Name", DataTypes.STRING))); //С тези два реда демонстрирам че не могат да се създават
-        System.out.println(table.addColumn(new Column("name", DataTypes.STRING))); //колони с еднакви имена
-        table.addColumn(new Column("Age", DataTypes.INTEGER));
-
-        System.out.println();
-        table.insertRowInColumn("name", new Row("Ivan"));
-        table.insertRowInColumn("name", new Row("Peter"));
-        table.insertRowInColumn("name", new Row("Kara"));
-        table.insertRowInColumn("age", new Row(12));
-        table.insertRowInColumn("age", new Row(43));
-        table.insertRowInColumn("age", new Row(17));
-
-        System.out.println();
-        System.out.println(table.displayColumnNames());
-
-        //System.out.println(table.displayTable());
+            Table students = new Table("Students");
+            students.addColumn(new Column("Name", DataTypes.STRING));
+            students.addColumn(new Column("Age", DataTypes.INTEGER));
+            students.addColumn(new Column("Address", DataTypes.STRING));
+            students.addColumn(new Column("FN", DataTypes.STRING));
+            students.addColumn(new Column("Grade", DataTypes.DOUBLE));
+            students.InsertIntoTable(new Data("Dimitar"),new Data(21),new Data("Varna"),new Data("28394223"),new Data(4.30));
+            students.InsertIntoTable(new Data("Ivan"),new Data(19),new Data("Varna"),new Data("67854567"),new Data(5.10));
+            System.out.println(students.printData(0));
+            System.out.println(students.printData(1));
 
 
-        //Object objects[] = {"Martin", 12};
-        //table.insertRow(objects);
-    }
+            Table football=new Table("Teams");
+            football.addColumn(new Column("Name",DataTypes.STRING));
+            football.addColumn(new Column("Year Created",DataTypes.INTEGER));
+            football.addColumn(new Column("Money spent",DataTypes.DOUBLE));
+            football.InsertIntoTable(new Data("Beroe"),new Data(1920),new Data(13.5));
+            System.out.println(football.printData(0));
+
+
+        }
 }
